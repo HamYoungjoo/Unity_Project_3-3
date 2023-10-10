@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 203d88d631f844167ad3d038958d26a1
+guid: 4cee33ff5c82640618c18415937fea7d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2575a395e15bc4fc287ccd6e73c5be7f
-      internalID: 2124911321
+      spriteID: 740ed0739bd584d6e9630cca5a0a998c
+      internalID: -1054256399
       vertices: []
       indices: 
       edges: []
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08ff8973944e84901acb34fc850187b1
-      internalID: -14816420
+      spriteID: 1ec08d622aff94b56a74131943fd0d08
+      internalID: -1011811243
       vertices: []
       indices: 
       edges: []
@@ -162,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Minji_fly_0: 2124911321
-      Minji_fly_1: -14816420
+      Minji_fly_0: -1054256399
+      Minji_fly_1: -1011811243
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

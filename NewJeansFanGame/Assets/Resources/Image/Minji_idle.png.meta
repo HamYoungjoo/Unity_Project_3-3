@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 41feaf92f2ed244518106f3038693d40
+guid: 86298aadf1cb24d6b8ee869f029d856c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Minji_Walking_0
+      name: Minji_idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e2e53aa5e6304c48972b0a80119e9d1
-      internalID: -1688847987
+      spriteID: 16ec385118a7b4230861e7fa2e2dafc0
+      internalID: -230798418
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Minji_Walking_1
+      name: Minji_idle_1
       rect:
         serializedVersion: 2
         x: 32
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be895d61b7106474da60e4aa6ade8ac6
-      internalID: -833930829
+      spriteID: 223b4793b97de4dc39e80bd97d630a9c
+      internalID: 252294513
       vertices: []
       indices: 
       edges: []
@@ -162,8 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Minji_Walking_0: -1688847987
-      Minji_Walking_1: -833930829
+      Minji_idle_0: -230798418
+      Minji_idle_1: 252294513
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
