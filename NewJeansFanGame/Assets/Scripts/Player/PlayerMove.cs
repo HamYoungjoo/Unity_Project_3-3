@@ -78,8 +78,21 @@ public class PlayerMove : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            OnDamaged(collision.transform.position);
+            if (_rigidbody.velocity.y < 0 && transform.position.y > collision.transform.position.y) //몬스터 어택
+            {
+                OnAttack(collision.transform);
+            }
+            else
+                OnDamaged(collision.transform.position);
         }
+    }
+
+    void OnAttack(Transform enemy)
+    {
+        _rigidbody.AddForce(Vector2.up * 5, ForceMode2D.Impulse);
+
+        EnemyMove enemyMove = enemy.GetComponent<EnemyMove>();
+        enemyMove.OnDamaged();
     }
 
     void OnDamaged(Vector2 targetPos)
