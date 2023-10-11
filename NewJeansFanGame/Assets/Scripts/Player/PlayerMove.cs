@@ -2,25 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMove : MonoBehaviour
 {
     public float maxSpeed;
     public float jumpPower;
     Rigidbody2D _rigidbody;
-    SpriteRenderer spriteRenderer;
+    SpriteRenderer _spriteRenderer;
     Animator anim;
 
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
     }
 
     void Update()
     {
         //Jump
-        if (Input.GetButtonDown("Jump") && !anim.GetBool("isJump"))
+        if (Input.GetButton("Jump") && !anim.GetBool("isJump"))
         {
             _rigidbody.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             anim.SetBool("isJump", true);
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
         //Direction Sprite
         if (Input.GetButtonDown("Horizontal"))
-            spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
+            _spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
 
         //Walk Anim
         if (Mathf.Abs(_rigidbody.velocity.x) < 0.3)
@@ -72,5 +72,32 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            OnDamaged(collision.transform.position);
+        }
+    }
+
+    void OnDamaged(Vector2 targetPos)
+    {
+        gameObject.layer = 11;
+        _spriteRenderer.color = new Color(1, 1, 1, 0.4f);
+
+        int dirc = transform.position.x - targetPos.x > 0 ? 1 : -1; // 적 혹은 장애물과 부딪혔을 때 부딪힌 방향으로 튕겨나간다.
+        _rigidbody.AddForce(new Vector2(dirc, 1) * 7, ForceMode2D.Impulse);
+
+        Invoke("OffDamaged", 3f);
+
+    }
+
+    void OffDamaged()
+    {
+        gameObject.layer = 10;
+        _spriteRenderer.color = new Color(1, 1, 1, 1);
+
     }
 }

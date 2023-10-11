@@ -5,11 +5,15 @@ using UnityEngine;
 public class EnemyMove : MonoBehaviour
 {
     Rigidbody2D _rigid;
+    SpriteRenderer _spriteRenderer;
     public int nextMove;
 
     void Awake()
     {
         _rigid = GetComponent<Rigidbody2D>();
+
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+
         Think();
 
         Invoke("Think", 5);
@@ -24,21 +28,35 @@ public class EnemyMove : MonoBehaviour
         RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1, LayerMask.GetMask("Platform"));
         if (rayHit.collider == null)
         {
-            nextMove *= -1;
-            CancelInvoke();
-            Invoke("Think", 5);
-
+            Turn();   
         }
 
     }
 
-    //재귀함수
+
     void Think()
     {
         nextMove = Random.Range(-1, 2);
 
+        //재귀 함수 Recursive
         float nextThinkTime = Random.Range(2f, 5f);
         Invoke("Think", nextThinkTime);
+
+        if (nextMove != 0)
+        {
+            _spriteRenderer.flipX = nextMove == 1;
+        }
+    }
+
+    void Turn()
+    {
+        nextMove *= -1;
+        _spriteRenderer.flipX = nextMove == 1;
+
+
+        CancelInvoke();
+        Invoke("Think", 5);
+
     }
 
 }
