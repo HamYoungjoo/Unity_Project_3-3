@@ -6,14 +6,14 @@ public class EnemyMove : MonoBehaviour
 {
     Rigidbody2D _rigid;
     SpriteRenderer _spriteRenderer;
-    CapsuleCollider2D _collder;
+    CapsuleCollider2D _collider;
     public int nextMove;
 
     void Awake()
     {
         _rigid = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _collder = GetComponent<CapsuleCollider2D>();
+        _collider = GetComponent<CapsuleCollider2D>();
 
         Invoke("Think", 5);
     }
@@ -62,7 +62,7 @@ public class EnemyMove : MonoBehaviour
     {
         _spriteRenderer.color = new Color(1, 1, 1, 0.4f);
         _spriteRenderer.flipY = true;
-        _collder.enabled = false;
+        _collider.enabled = false;
         _rigid.AddForce(Vector2.up * 5f, ForceMode2D.Impulse);
         Invoke("DeActive", 5);
     }

@@ -1,30 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public int totalPoint;
+    //public int totalPoint;
     public int stagePoint;
-    public int stageIndex;
     public int health;
     public PlayerMove player;
 
-    public void NextStage()
-    {
-        stageIndex++;
+    public Image[] UiHp;
+    public TextMeshProUGUI UiPoint;
+    public TextMeshProUGUI UiTotalPoint;
 
-        totalPoint += stagePoint;
-        stagePoint = 0;
+    public GameObject EndPanel;
+    public GameObject GameOverPanel;
+
+    void Update()
+    {
+        UiPoint.text = stagePoint.ToString();
+        UiTotalPoint.text = stagePoint.ToString();
+    }
+
+    public void GameFinish()
+    {
+        Time.timeScale = 0;
+
+        EndPanel.SetActive(true);
     }
 
     public void HealthDown()
     {
-        if (health > 0)
+        if (health > 1)
+        {
             health--;
+            UiHp[health].color = new Color(1, 0, 0, 0.4f);
+        }
+      
         else
         {
             player.OnDie();
+            GameOverPanel.SetActive(true);
+            health--;
+            UiHp[health].color = new Color(1, 0, 0, 0.4f);
+
         }
     }
 
@@ -32,11 +54,31 @@ public class GameManager : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            health--;
+         
+            if(health > 1)
+            {
+                PlayerReposition();
+            }
 
-            collision.attachedRigidbody.velocity = Vector2.zero;
-            collision.transform.position = new Vector3(0, 0, -1);
+            HealthDown();
+
         }
     }
-   
+
+    void PlayerReposition()
+    {
+        player.transform.position = new Vector3(-10f, 0 - 1);
+        player.VelocityZero();
+    }
+
+    public void MoveToMainScene()
+    {
+        SceneManager.LoadScene("MainScene");
+        Time.timeScale = 1;
+    }
+
+    public void MoveToStartScene()
+    {
+        SceneManager.LoadScene("StartScene");
+    }
 }
