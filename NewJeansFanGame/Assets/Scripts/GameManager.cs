@@ -25,9 +25,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-
         audioSource.clip = bgmClip;
-        audioSource.loop = true; // 반복 재생
+        audioSource.loop = true;
         audioSource.Play();
     }
 
@@ -60,6 +59,7 @@ public class GameManager : MonoBehaviour
             GameOverPanel.SetActive(true);
             health--;
             UiHp[health].color = new Color(1, 0, 0, 0.4f);
+            audioSource.Stop();
 
         }
     }
