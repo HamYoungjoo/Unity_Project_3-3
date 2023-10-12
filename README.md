@@ -68,11 +68,11 @@
 
 ![스크린샷 2023-10-12 오전 11 21 53](https://github.com/HamYoungjoo/Unity_Project_3-3/assets/141566906/79b09b1b-64b1-4a53-8df4-a8d02fc42059) <br/>
 ![스크린샷 2023-10-12 오전 11 22 33](https://github.com/HamYoungjoo/Unity_Project_3-3/assets/141566906/bebd9d91-02c5-4e54-af3c-a6b95be59c87) <br/>
-![스크린샷 2023-10-12 오전 11 28 46](https://github.com/HamYoungjoo/Unity_Project_3-3/assets/141566906/017d27bb-75f2-4ad1-bfe5-42dccd9d88fb) <br/>
+![스크린샷 2023-10-12 오후 12 20 20](https://github.com/HamYoungjoo/Unity_Project_3-3/assets/141566906/9821f6a0-bfbb-43c6-b5b5-5805699beaf2) <br/>
 
 
 ### ✅ 추후 계획
-- 게임오버, 게임클리어 패널의 UI를 기본 틀만 만들어 둔 상태인데 수정할 것.
 - 아이템을 prefab으로 생성하는 방법이 있을 것 같은데 구현 방법을 아직 찾지 못해 추후 아이템 생성 방법을 공부 한 뒤 추가.
+- 적 캐릭터 위치별 생성.
 - 스테이지 추가, 지금은 하나의 스테이지에서 목표지점에 도착하면 게임 클리어인데 스테이지를 추가해 난이도의 차별성을 둘 것.
 
