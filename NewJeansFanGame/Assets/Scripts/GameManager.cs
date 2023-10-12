@@ -18,6 +18,18 @@ public class GameManager : MonoBehaviour
 
     public GameObject EndPanel;
     public GameObject GameOverPanel;
+    private AudioSource audioSource;
+    public AudioClip bgmClip;
+
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+
+        audioSource.clip = bgmClip;
+        audioSource.loop = true; // 반복 재생
+        audioSource.Play();
+    }
 
     void Update()
     {
@@ -30,6 +42,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
 
         EndPanel.SetActive(true);
+        audioSource.Stop();
+
     }
 
     public void HealthDown()
